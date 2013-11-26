@@ -1,0 +1,22 @@
+{
+	"name": "web-techs-history",
+	"version": "1.0.0",
+	"description": "Support code for the course \"A Brief History of Web Technologies\"",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"express": "~3.4.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:snowfix/web-techs-history.git"
+	},
+	"author": "Francois-Xavier 'FiX' Kowalski",
+	"license": "Apache-v2",
+	"bugs": {
+		"url": "https://github.com/snowfix/web-techs-history/issues"
+	},
+	"homepage": "https://github.com/snowfix/web-techs-history"
+}
