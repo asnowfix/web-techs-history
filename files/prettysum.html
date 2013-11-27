@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Next Generation Calculator (Animated)</title>
+	</head>
+	<body>
+		<h1>Next Generation Calculator (Animated)</h1>
+		<form id="sum" action="/forms/sum" method="post"> 
+			<span onmouseover="txt1In(this)"
+			      onmouseout="txt1Out(this)">Number	1:</span>
+			<input type="text" name="num1"></input>
+			<br>
+
+			<span onmouseover="txt2In(this)"
+			      onmouseout="txt2Out(this)">Number 2:</span>
+			<input type="text" name="num2"></input>
+			<br>
+
+			<span id="theresult">Result:</span>
+			<input type="submit" value="Sum"/>
+		</form>
+		<script>
+			function txt1In(node) {
+				console.log("txt1:mouseover node:", node);
+				node.textContent = "Enter Number 1:";
+			}
+			function txt1Out(node) {
+				console.log("txt1:mouseout node:", node);
+				node.textContent = "Number 1:";
+			}
+
+			function txt2In(node) {
+				console.log("txt2:mouseover node:", node);
+				node.className = "highlight";
+			}
+			function txt2Out(node) {
+				console.log("txt2:mouseout node:", node);
+				node.className = "normal";
+			}
+		</script>
+		<style>
+			.highlight {
+				background: #ffff00;
+			}
+			.normal {
+				background: #ffffff;
+			}
+			#theresult:hover {
+				background: green;
+			}
+		</style>
+	</body>
+<html>
