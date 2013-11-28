@@ -1,3 +1,4 @@
+/*global enyo*/
 enyo.kind({
 	name: "enyo.sample.AjaxSample",
 	kind: "FittableRows",
@@ -13,7 +14,8 @@ enyo.kind({
 			{kind: "onyx.Input", name:"baseUrl", fit:true, value:'http://query.yahooapis.com/v1/public/yql?format=json'}
 		]},
 		{kind: "onyx.TextArea", fit:true, classes:"ajax-sample-source"},
-		{name: "basicPopup", kind: "onyx.Popup", centered: true, floating: true, classes:"onyx-sample-popup", style: "padding: 10px;", content: "Popup..."}
+		{name: "basicPopup", kind: "onyx.Popup", centered: true, floating: true, classes:"onyx-sample-popup", style: "padding: 10px;", content: "Popup..."},
+		{name: "theTitle", tag: "p", allowHtml: false}
 	],
 	fetch: function() {
 		var ajax = new enyo.Ajax({
@@ -31,6 +33,8 @@ enyo.kind({
 	processResponse: function(inSender, inResponse) {
 		// do something with it
 		this.$.textArea.setValue(JSON.stringify(inResponse, null, 2));
+		console.log("inResponse:", inResponse);
+		this.$.theTitle.setContent(inResponse.query.results.channel[0].title);
 	},
 	processError: function(inSender, inResponse) {
 		var errorLog = "Error" + ": " + inResponse + "! " + (JSON.parse(inSender.xhrResponse.body)).error.description;
